@@ -1,0 +1,57 @@
+<!-- Header Component that will be reused in the other html files at the bottom -->
+
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
+    {% if request.user.is_active %}
+    <a class="navbar-brand py-0" href="#">
+        <img
+        src="https://www.graphicsprings.com/filestorage/stencils/0e0a9d170faa1909f1ff8dcf0b1e9d15.png?width=500&height=500"
+        height="50"
+        alt="CityBae"
+        />
+    </a>
+    {% else %}
+    <a class="navbar-brand py-0" href="#">
+        <img
+        src="https://www.graphicsprings.com/filestorage/stencils/0e0a9d170faa1909f1ff8dcf0b1e9d15.png?width=500&height=500"
+        height="50"
+        alt="CityBae"
+        />
+    </a>
+    {% endif %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav py-0">
+            <li class="nav-item active py-0">
+                {% if request.user.is_active %}
+                <a class="nav-link h4 py-0" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a class="nav-link h4 py-0" href="/">Login</a>
+                {% endif %}
+            </li>
+            <li class="nav-item py-0">
+                <a class="nav-link h4 py-0" href="{% url 'search' %}">Rate City</a>
+            </li>
+            <li class="nav-item py-0">
+                {% if request.user.is_active %}
+                <a class="nav-link h4 py-0" href="{% url 'rating-overview' %}">Show Ratings</a>
+                {% else %}
+                <a class="nav-link h4 py-0" href="/">Show Ratings</a>
+                {% endif %}
+            </li>
+        </ul> 
+    </div>
+    <div class="navbar-nav p-5 py-0">
+        <a>{{user}}</a>
+    </div>
+
+    <style>
+        .navbar-brand
+        {
+          font-family: 'Lato', sans-serif;
+          color:black;
+          font-size: 30px;
+          margin: 20px;
+        }
+    </style>
+
+</nav>
+
